@@ -106,6 +106,10 @@ deploy:
   repository: git@github.com:likeyukiyuki/likeyukiyuki.github.io.git
   branch: master
 
+
+marked:
+  prependRoot: true
+  postAsset: true
 # Markdown-it config
 markdown:
   render:
@@ -127,4 +131,3 @@ markdown:
     permalink: true
     permalinkClass: header-anchor
     permalinkSymbol: ¶
-    
