@@ -6,7 +6,7 @@
   <link href="http://likeyukiyuki.github.io/atom.xml" rel="self"/>
   
   <link href="http://likeyukiyuki.github.io/"/>
-  <updated>2023-09-04T19:18:57.311Z</updated>
+  <updated>2023-09-05T19:01:43.240Z</updated>
   <id>http://likeyukiyuki.github.io/</id>
   
   <author>
@@ -21,8 +21,15 @@
     <link href="http://likeyukiyuki.github.io/2023/09/05/2023-09-05%E5%91%A8%E6%8A%A5/"/>
     <id>http://likeyukiyuki.github.io/2023/09/05/2023-09-05%E5%91%A8%E6%8A%A5/</id>
     <published>2023-09-04T19:18:57.000Z</published>
-    <updated>2023-09-04T19:18:57.311Z</updated>
+    <updated>2023-09-05T19:01:43.240Z</updated>
     
+    <content type="html"><![CDATA[<h2 id="关于图片不能显示的问题：已解决"><a href="#关于图片不能显示的问题：已解决" class="headerlink" title="关于图片不能显示的问题：已解决"></a>关于图片不能显示的问题：已解决</h2><p>之前尝试安装hexo-render-marked插件时正好遇上“package.json文件内没有md文件转htm渲染器”的问题，于是耽搁了下来。当解决完上述问题时，再去安装插件就顺利很多了。<br>首先是键入命令:</p><p><code>npm install hexo-renderer-marked </code></p><p>安装成功后，在_config.yml中修改配置：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: true //在创建一个新文章时自动创建同名文件夹，用于放图片</span><br><span class="line">marked:</span><br><span class="line">  prependRoot: true</span><br><span class="line">  postAsset: true</span><br></pre></td></tr></table></figure><p>然后在需要引用图片的博客内使用<code>![](图片路径)</code><br>例如：我现在有一篇文章叫“番茄钟.md”，如图所示：<br><img src="/2023/09/05/2023-09-05%E5%91%A8%E6%8A%A5/example_file.png"><br>我需要在这篇文章内引用一张图片，那我就把图片放同名文件夹“番茄钟”内,如图所示：<br><img src="/2023/09/05/2023-09-05%E5%91%A8%E6%8A%A5/example_tomata.png"><br>接下来我只需要在“番茄钟.md”内写上相对路径即可，例如：<code>![](./番茄钟/zt.png)</code>,效果如图：<br><img src="/2023/09/05/2023-09-05%E5%91%A8%E6%8A%A5/example_use.png"><br>如果需要设置图片的尺寸可以使用标签：<code>&lt;img src=&quot;相对路径&quot; width=&quot;数值&quot; height=&quot;数值&quot;&gt;</code>。<br>依旧用番茄钟举例子，如图所示：<br><img src="/2023/09/05/2023-09-05%E5%91%A8%E6%8A%A5/example_size.png"><br>记得绝对路径一定要写对，当对放图片的文件夹重命名以后，一定要把路径内名字改成新的，不然点击文章以后，hexo网页会变成404。一开始我还很疑惑为什么主页运行正常但是一点击文章就404了呢，后来发现是因为把放图片的文件夹改名后忘记在md文件内改过来了。<br><img src="/2023/09/05/2023-09-05%E5%91%A8%E6%8A%A5/cause404.png"><br>关于图片的问题到此就完美解决啦~</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;关于图片不能显示的问题：已解决&quot;&gt;&lt;a href=&quot;#关于图片不能显示的问题：已解决&quot; class=&quot;headerlink&quot; title=&quot;关于图片不能显示的问题：已解决&quot;&gt;&lt;/a&gt;关于图片不能显示的问题：已解决&lt;/h2&gt;&lt;p&gt;之前尝试安装hexo-render-</summary>
+      
     
     
     
