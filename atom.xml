@@ -6,7 +6,7 @@
   <link href="http://likeyukiyuki.github.io/atom.xml" rel="self"/>
   
   <link href="http://likeyukiyuki.github.io/"/>
-  <updated>2023-09-21T14:45:33.187Z</updated>
+  <updated>2023-09-24T11:48:54.877Z</updated>
   <id>http://likeyukiyuki.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2023-09-24 周报</title>
+    <link href="http://likeyukiyuki.github.io/2023/09/24/2023-09-24%E5%91%A8%E6%8A%A5/"/>
+    <id>http://likeyukiyuki.github.io/2023/09/24/2023-09-24%E5%91%A8%E6%8A%A5/</id>
+    <published>2023-09-24T08:23:29.000Z</published>
+    <updated>2023-09-24T11:48:54.877Z</updated>
+    
+    <content type="html"><![CDATA[<p>本周由于前四天时间都花费在往返学校以及考试中，所以学习的内容比较少，这周是关于线性回归的梯度下降算法的学习。</p><h2 id="线性回归-Linear-Regression"><a href="#线性回归-Linear-Regression" class="headerlink" title="线性回归(Linear Regression)"></a>线性回归(Linear Regression)</h2><p>线性回归是一个监督学习的算法，基于上周学习的基础可以知道回归问题是需要得到一个具体的预测值的，而线性回归顾名思义，其函数图像是一个线性图像。训练集中有着大量数据以及其映射关系，而机器学习的目的就是得到这种映射关系。这么说起来感觉很抽象，就像一个普通的二元一次方程，当我们知道一个x和方程式那必然可以得到一个y，机器学习就是已知有许多个x与y，需要找到方程式（也就是映射关系）。用专业点的话来说就是建立了一个模型。</p><h2 id="代价函数-Cost-Funcation"><a href="#代价函数-Cost-Funcation" class="headerlink" title="代价函数(Cost Funcation)"></a>代价函数(Cost Funcation)</h2><p>如何评价一个模型的好坏呢？这就需要引出接下来的代价函数了。当我们已经找到一个方程式，这时候我们可以对已经找到的方程输入一个x值而得到的一个y值（预测值），而同时我们又知道原本的y值（真实值），而真实值与预测值之间的差值（残差）就可以评估这个模型的好坏。但是问题是仅仅一个参数肯定没有代表性，那么我们需要对所有的进行计算然后求平方（为了消除负值）最后相加，我们就得到了预测值与真实值的方差（即代价函数cost function）用以评估模型。而我们此时的目的就转化成了找到cost function的最小值。<br>公式如图所示：<br><img src="/2023/09/24/2023-09-24%E5%91%A8%E6%8A%A5/cost%20function.png"><br>当模型仅有一个参数时，函数的图像如图所示：<br><img src="/2023/09/24/2023-09-24%E5%91%A8%E6%8A%A5/%E4%B8%80%E7%BB%B4%E7%BA%BF%E6%80%A7.png"><br>当模型有两个参数时。函数图像如下：<br><img src="/2023/09/24/2023-09-24%E5%91%A8%E6%8A%A5/%E4%BA%8C%E7%BB%B4%E7%BA%BF%E6%80%A7.png"></p><h2 id="梯度下降法（Gradient-Descent）"><a href="#梯度下降法（Gradient-Descent）" class="headerlink" title="梯度下降法（Gradient Descent）"></a>梯度下降法（Gradient Descent）</h2><p>上面说到我们现在的目的是找到cost function的最小值，那么有什么方法可以准确快速的找到一个函数的最小值呢？没错，就是梯度下降法。它的工作原理是从初始点开始，不断寻找一个最优方向进行下降，直至收敛至局部最低点。而方向即是导数的方向。<br>如图所示：<br><img src="/2023/09/24/2023-09-24%E5%91%A8%E6%8A%A5/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D.png"><br>如果初始位置不同找到的最低点也有可能不同。<br><img src="/2023/09/24/2023-09-24%E5%91%A8%E6%8A%A5/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D2.png"><br>而如果当初始点就是在局部最低点的时候，将不会继续下降了。<br>梯度下降法的公式如图所示：<br><img src="/2023/09/24/2023-09-24%E5%91%A8%E6%8A%A5/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E5%85%AC%E5%BC%8F.png"><br>“:&#x3D;”此符号的意思是赋值，意味着梯度下降是一个不断迭代的过程。<br>其中的”α”是决定下降的速率：α过小时，学习速率很低；α过大时，容易找不到局部最低点。</p><h2 id="线性回归的梯度下降法"><a href="#线性回归的梯度下降法" class="headerlink" title="线性回归的梯度下降法"></a>线性回归的梯度下降法</h2><p>最巧妙的地方就是在这里，前面说到了梯度下降法有一个问题在于它只能找到局部最优解而不是全局最优解，但是线性回归中代价函数的图像是一个凸函数，即只有一个最优解。那么在线性回归中运用梯度下降法简直是天作之合。<br>那么关于线性回归的梯度下降算法就到这里为止啦~</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;本周由于前四天时间都花费在往返学校以及考试中，所以学习的内容比较少，这周是关于线性回归的梯度下降算法的学习。&lt;/p&gt;
+&lt;h2 id=&quot;线性回归-Linear-Regression&quot;&gt;&lt;a href=&quot;#线性回归-Linear-Regression&quot; class=&quot;heade</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>2023-09-13周报/週報</title>
