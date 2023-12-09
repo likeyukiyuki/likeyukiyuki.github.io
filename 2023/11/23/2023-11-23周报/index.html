@@ -1,0 +1,197 @@
+<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>2023-11-23周报 | yuki</title><meta name="author" content="yuki"><meta name="copyright" content="yuki"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本周的任务就是将论文的剩余部分完结，虽然还剩下几章但都是实验相关的内容，大多数对参数的介绍，因此可以放到一起总结。 &#x2F;今週のタスクは、まだいくつかの章が残っていますが、それらはすべて実験に関連しており、ほとんどのパラメータが紹介されているので、それらをまとめることができます。 实验 &#x2F;実験数据集为Fashion-MNIST，分为10类。可以重组为两个粗类和一个细类，具体内容如图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023-11-23周报">
+<meta property="og:url" content="http://likeyukiyuki.github.io/2023/11/23/2023-11-23%E5%91%A8%E6%8A%A5/index.html">
+<meta property="og:site_name" content="yuki">
+<meta property="og:description" content="本周的任务就是将论文的剩余部分完结，虽然还剩下几章但都是实验相关的内容，大多数对参数的介绍，因此可以放到一起总结。 &#x2F;今週のタスクは、まだいくつかの章が残っていますが、それらはすべて実験に関連しており、ほとんどのパラメータが紹介されているので、それらをまとめることができます。 实验 &#x2F;実験数据集为Fashion-MNIST，分为10类。可以重组为两个粗类和一个细类，具体内容如图">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-11-22T16:06:11.000Z">
+<meta property="article:modified_time" content="2023-11-23T15:38:51.575Z">
+<meta property="article:author" content="yuki">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://likeyukiyuki.github.io/2023/11/23/2023-11-23%E5%91%A8%E6%8A%A5/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '2023-11-23周报',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-11-23 23:38:51'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="yuki" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="yuki"><span class="site-name">yuki</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">2023-11-23周报</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-11-22T16:06:11.000Z" title="Created 2023-11-23 00:06:11">2023-11-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-11-23T15:38:51.575Z" title="Updated 2023-11-23 23:38:51">2023-11-23</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="2023-11-23周报"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>本周的任务就是将论文的剩余部分完结，虽然还剩下几章但都是实验相关的内容，大多数对参数的介绍，因此可以放到一起总结。</p>
+<p>&#x2F;今週のタスクは、まだいくつかの章が残っていますが、それらはすべて実験に関連しており、ほとんどのパラメータが紹介されているので、それらをまとめることができます。</p>
+<h3 id="实验-実験"><a href="#实验-実験" class="headerlink" title="实验 &#x2F;実験"></a>实验 &#x2F;実験</h3><p>数据集为Fashion-MNIST，分为10类。可以重组为两个粗类和一个细类，具体内容如图所示 &#x2F;データセットは Fashion-MNIST で、10 のカテゴリに分かれています。 図に示すように、2 つの粗いクラスと 1 つの細かいクラスに再編成できます。：<br><img src="/2023/11/23/2023-11-23%E5%91%A8%E6%8A%A5/%E5%88%86%E7%B1%BB.png"><br>图中的分类与H-CNN的模型架构是匹配的。 &#x2F;図の分類は、H-CNN のモデル アーキテクチャと一致します。</p>
+<p>在训练H-CNN模型时增加了减重值，为了反映每个级别的类重要性的差异，在每个级别上应用不同的损失权值。在初始化阶段，底层特征提取对结果影响很大，所以赋值比后期阶段高。</p>
+<p>&#x2F;H-CNN モデルのトレーニング時に減量値を追加し、各レベルでのクラス重要度の違いを反映するために、各レベルで異なる損失の重みを適用しました。 初期化段階では、基礎となる特徴抽出が結果に大きな影響を与えるため、後の段階よりも割り当てが高くなります。</p>
+<h3 id="结果-結果"><a href="#结果-結果" class="headerlink" title="结果 &#x2F;結果"></a>结果 &#x2F;結果</h3><p>将VGG16 H-CNN模型与VGG16基础模型、VGG19 H-CNN模型与VGG19基础模型的结果进行比较：</p>
+<p>&#x2F;VGG16 H-CNNモデルの結果をVGG16ベースモデルと比較し、VGG19 H-CNNモデルとVGG19ベースモデルを比較しました。<br><img src="/2023/11/23/2023-11-23%E5%91%A8%E6%8A%A5/loss.png"><br>总的来说，当比较H-CNN模型的基本模型和精细类的预测值时，H-CNN模型在训练集和测试集上都具有更低的损失和更高的准确率。</p>
+<p>&#x2F;全体として、基本モデルとH-CNNモデルのファインクラスの予測値を比較すると、H-CNNモデルはトレーニングセットとテストセットの両方で損失が低く、精度が高くなっています。</p>
+<p>H-CNN与其他模型进行对比 &#x2F;H-CNN を他のモデルと比較します：<br><img src="/2023/11/23/2023-11-23%E5%91%A8%E6%8A%A5/accuracy.png"><br>CNN2+BatchNorm+Skip模型由两个卷积和最大池化层组成，表示为CNN2，通过批处理归一化训练，表示为BatchNorm，残差跳跃连接，表示为skip。支持向量分类器(SVC)和进化深度学习(EDEN)。</p>
+<p>&#x2F;CNN2+BatchNorm+Skip モデルは、2 つの畳み込みと最大プーリング層 (CNN2 と表記) で構成され、バッチ正規化によってトレーニングされ (BatchNorm)、残余ホップ結合 (skip) されます。 ベクトル分類器 (SVC) と進化的深層学習 (EDEN) のサポート。</p>
+<p>在VGG16和VGG19两种架构下观察到H-CNN模型可以获得更好的性能。 &#x2F;H-CNN モデルは、VGG16 および VGG19 アーキテクチャでより優れたパフォーマンスが得られることが観察されています。</p>
+<h3 id="讨论-話し合う"><a href="#讨论-話し合う" class="headerlink" title="讨论 &#x2F;話し合う"></a>讨论 &#x2F;話し合う</h3><p>该论文提出的分类器在服装分类研究中表现出比基础分类器更好的性能。作为知识嵌入分类器，它在多阶段输出学习策略后提供层次结构的附加信息，而不是提供单一标签输出，具有一定的优势。</p>
+<p>&#x2F;本論文で提案する分類器は、衣服分類研究において基本分類器よりも優れた性能を示す。 知識が埋め込まれた分類子として、単一のラベル出力を提供するのではなく、学習戦略の多段階出力の後に階層の追加情報を提供するという点で特定の利点があります。</p>
+<p>但是这种预先定义数据集层次标签的过程也可以通过数据驱动的方法来完成。<br>&#x2F;ただし、データセットの階層ラベルを事前に定義するこのプロセスは、データ駆動型のアプローチでも実行できます。</p>
+<p>在训练H-CNN分类器之前，可以先训练没有层次分类器嵌入的基本CNN模型，然后输入测试集，得到分类结果的混淆矩阵。然后比较每个类别的测试图像的值。发现了在一些被错分的数据中，某些类别被分错的概率更高。通过比较混淆矩阵和误分类样本的值，我们可以推断出服装类别之间的相似性和关系，并在此基础上定义服装类别的层次。</p>
+<p>&#x2F;H-CNN 分類器を学習させる前に、階層型分類器を埋め込まずに基本的な CNN モデルを学習させ、テスト セットを入力して分類結果の混同行列を取得できます。 次に、各カテゴリのテスト画像の値が比較されます。 誤分類されたデータの中には、特定のカテゴリが誤分類される確率が高いものがあることがわかりました。 混同行列と誤分類されたサンプルの値を比較することで、衣料品カテゴリ間の類似点と関係を推測し、これに基づいて衣料品カテゴリの階層を定義することができます。<br><img src="/2023/11/23/2023-11-23%E5%91%A8%E6%8A%A5/matrix.png"></p>
+<p>在这个例子中，衬衫和t恤可能会被错误地分类，并且可能属于同一个粗略类别。然而，我们发现这一部分超出了范围，并没有进一步的实验，因为本文的重点是提出使用CNN对服装分类的层次结构的考虑，而不是层次结构的定义方式。</p>
+<p>&#x2F;この例では、シャツと T シャツが誤って分類され、同じ大まかなカテゴリに分類される可能性があります。 しかし、このセクションは範囲を超えており、この論文の焦点は、階層がどのように定義されているかではなく、CNNを使用して衣服の分類の階層の考察を提示することであるため、それ以上の実験はされていません。</p>
+<h3 id="结论-結論"><a href="#结论-結論" class="headerlink" title="结论 &#x2F;結論"></a>结论 &#x2F;結論</h3><p>层次卷积神经网络(H-CNN)将服装类的层次结构应用到服装图像的分类过程中，H-CNN架构基于VGGNet，由多个卷积层、最大池化层和全连接层组成的五个构建块组成。将该架构应用于Fashion-MNIST数据集。</p>
+<p>&#x2F;階層型畳み込みニューラルネットワーク(H-CNN)は、衣服クラスの階層構造を衣服画像の分類プロセスに適用し、H-CNNアーキテクチャは、複数の畳み込み層、最大プーリング層、全結合層を含む5つのビルディングブロックで構成されるVGGNetに基づいています。 スキーマは Fashion-MNIST データセットに適用されます。</p>
+<p>我们将数据集重新分类为三个级别的类，当输入图像经过本文提出的H-CNN模型时，将依次计算粗1级、粗2级、细级三个预测值。</p>
+<p>&#x2F;データセットを3つのレベルのクラスに再分類し、本論文で提案したH-CNNモデルを入力画像が通過すると、粗い1、粗い2、細かい3つの予測が順番に計算されます。</p>
+<p>我们进行了两个实验，一是将VGG16 H-CNN模型与VGG16基础模型进行对比，二是将VGG19 H-CNN模型与VGG19基础模型进行对比。结果表明，使用H-CNN模型比基本模型具有更低的损失和更高的精度。这意味着可以通过在CNN上反映层次结构来解决服装图像分类的困难。</p>
+<p>&#x2F;VGG16 H-CNNモデルとVGG16ベースモデルの比較実験と、VGG19 H-CNNモデルとVGG19ベースモデルの比較実験の2つの実験を行いました。 その結果、H-CNNモデルは基本モデルよりも損失が小さく、精度が高いことが分かりました。 つまり、衣服画像分類の難しさは、階層をCNNに反映させることで解決できるということです。</p>
+<p>我们的方法的贡献在于提出的模型不局限于单一的分类器，而是知识嵌入分类器，该分类器经过训练可以输出传递层次信息的多层分类标签。本文用启发式方法定义了这种层次结构。</p>
+<p>&#x2F;本アプローチの貢献は、提案モデルが単一の分類器に限定されず、階層情報を伝える多層分類ラベルを出力するように訓練できる知識埋め込み型分類器であるという事実にあります。 この記事では、この階層をヒューリスティックな方法で定義します。</p>
+<p>在未来的研究中，可以进一步的开发，因为Fashion MNIST数据集是直接用于分析的精炼数据集，与真实在线的服装图像有很大差异。在网上获得的图片大多数没有经过标记的，这时候应用半监督学习比较好。</p>
+<p>&#x2F;Fashion MNISTデータセットは、実際のオンラインの衣料品画像とは大きく異なる、分析に直接使用される洗練されたデータセットであるため、今後の研究ではさらに発展させることができます。 インターネットで得られた画像のほとんどはマークされておらず、半教師あり学習を適用することをお勧めします。</p>
+<p>在不同的数据集或者不同的架构上训练，找出最适合实现H-CNN模型的CNN架构。<br>由于CNN被广泛用于非手工特征提取，所以只考虑CNN作为我们的分类器，只在CNN上实现层次方法。在进一步的研究中利用其他特征提取方法实现CNN的层次集成模型。</p>
+<p>&#x2F;さまざまなデータセットまたはさまざまなアーキテクチャでトレーニングを行い、H-CNN モデルを実装するのに最適な CNN アーキテクチャを見つけます。<br>CNNは非手動の特徴抽出に広く使用されているため、CNNのみが分類器と見なされ、階層的手法はCNNにのみ実装されます。 さらなる研究では、CNNの階層アンサンブルモデルを実現するために、他の特徴抽出法が使用されています。</p>
+<p>最后，针对层次结构，采用启发式方法定义服装数据集的层次标签，在未来的研究中，希望进一步将数据驱动方法应用到其他实验中，并将结果与启发式方法进行比较。</p>
+<p>&#x2F;最後に、階層構造については、ヒューリスティック法を用いて衣料品データセットの階層ラベルを定義し、今後の研究では、データ駆動型法をさらに他の実験に応用し、その結果をヒューリスティック法と比較することが期待されます。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://likeyukiyuki.github.io">yuki</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://likeyukiyuki.github.io/2023/11/23/2023-11-23%E5%91%A8%E6%8A%A5/">http://likeyukiyuki.github.io/2023/11/23/2023-11-23%E5%91%A8%E6%8A%A5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/12/09/2023-12-09%E5%91%A8%E6%8A%A5/" title="2023-12-09周报"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">2023-12-09周报</div></div></a></div><div class="next-post pull-right"><a href="/2023/11/15/2023-11-15%E5%91%A8%E6%8A%A5/" title="2023-11-15周报"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">2023-11-15周报</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">yuki</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C-%E5%AE%9F%E9%A8%93"><span class="toc-number">1.</span> <span class="toc-text">实验 &#x2F;実験</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C-%E7%B5%90%E6%9E%9C"><span class="toc-number">2.</span> <span class="toc-text">结果 &#x2F;結果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A8%E8%AE%BA-%E8%A9%B1%E3%81%97%E5%90%88%E3%81%86"><span class="toc-number">3.</span> <span class="toc-text">讨论 &#x2F;話し合う</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA-%E7%B5%90%E8%AB%96"><span class="toc-number">4.</span> <span class="toc-text">结论 &#x2F;結論</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/09/2023-12-09%E5%91%A8%E6%8A%A5/" title="2023-12-09周报">2023-12-09周报</a><time datetime="2023-12-09T15:37:41.000Z" title="Created 2023-12-09 23:37:41">2023-12-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/11/23/2023-11-23%E5%91%A8%E6%8A%A5/" title="2023-11-23周报">2023-11-23周报</a><time datetime="2023-11-22T16:06:11.000Z" title="Created 2023-11-23 00:06:11">2023-11-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/11/15/2023-11-15%E5%91%A8%E6%8A%A5/" title="2023-11-15周报">2023-11-15周报</a><time datetime="2023-11-14T16:52:26.000Z" title="Created 2023-11-15 00:52:26">2023-11-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/11/08/2023-11-08%E5%91%A8%E6%8A%A5/" title="2023-11-08周报">2023-11-08周报</a><time datetime="2023-11-08T12:27:33.000Z" title="Created 2023-11-08 20:27:33">2023-11-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/11/07/dnn%E3%80%81rnn/" title="dnn、rnn">dnn、rnn</a><time datetime="2023-11-06T17:52:39.000Z" title="Created 2023-11-07 01:52:39">2023-11-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By yuki</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
